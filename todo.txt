@@ -1,0 +1,7 @@
+* 2 Learn and implement django for #pollfire
+* 2 Learn pygame #python
+x 1 Document the todo appindicator #programming
+x 3 Learn to use libindicator
+* 3 Return the hathway modem quickly
+* 3 Read more about using gtk #programming
+x 1 Register the app on launchpad

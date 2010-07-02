@@ -1,0 +1,42 @@
+GENERAL DOCS:
+
+"Todoindicator" is an implementation of the plain text todo.txt into the indicator panel applet. It reads a simple syntaxed and time-saving todo.txt which is highly portable and editable (because of it being just plain .txt) and lists them out in a menu in the panel according to the priority of the task (please see the syntax below) from where tasks can be marked as 'done' or 'undone' swiftly. Thus, giving even the simple plain text todo list more usability. 
+
+>> PORTABLE
+Because the applet reads from a plain text todo.txt file, your task list still retains the portability it enjoyed. You can take your todo.txt to any computer and it will stay the same without any extra formatting added on it. Todoindicator reads the todo.txt from the start everytime you run it so as to eliminate the need for one todo.txt to be bound to the applet it was used in.
+
+>> STILL DISTRACTION FREE
+The main reason people prefer to use a plain text todo.txt is because they don't need to worry about any extra settings or preferences given to them in a proper desktop application for task management. Eventhough the todo.txt is read and displayed as a menu in the indicator applet area, there is no visible application open. In fact the purpose of the indicator applet is to control some functions of an application without opening the application everytime. In fact, Todoindicator is only the applet.
+
+>> STILL SIMPLE
+Todoindicator still maintains the simplicity of the todo.txt. 
+
+
+
+SYNTAX:
+Todoindicator understands a simple syntax which is easy to follow and adapt in your todo.txt:
+
+Examples:
+-----------------------------------------------------------
+* 3 Write a good README #todoindicator
+x 1 Second sample task with no hash tags written @home
+* 2 Implement more features into #todoindicator
+-----------------------------------------------------------
+
+The first character is supposed to be '*' or 'x' meaning: pending(*) and done(x)
+The number is the priority for the task which has to be specified: 1:low, 2:medium, 3:high, 0:undecided
+Then the task can be written down. '#tags' carry a specail meaning. The are going to be used to categorise your tasks.
+
+
+A few important rules:
+1) There should be a space between '*'/'x', the priority number, and the task sentence.
+2) The priority must be given. Use 0 for undecided.
+3) Inside the task sentence you can use your own syntax as you wish. (ex: # for tags, @ for location .etc). No special formatting is done based on the syntax of the task line beyond the priority number. YET.
+
+
+
+
+
+
+
+
