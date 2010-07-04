@@ -3,7 +3,7 @@
 import re, sys, os
 import random
 import pynotify
-from settings import *
+import settings
 
 # Tododb is a python dict as a database for the todo tasks in todo.txt
 # It reads from the todo.txt specified in the settings.TODO_TXT_LOCATION variable
@@ -19,6 +19,7 @@ from settings import *
 
 
 
+            
 def generate_random(current_list):
     """ Generate a number to serve as a key in the todo_dict """
     while True:
@@ -42,6 +43,9 @@ class Tododb:
 
         self.tasklist = [] 
         self.tododict = {}
+        
+        self.location = filename
+        print "file:",filename         
 
         try:
             self.fo = open(filename, 'r')
@@ -51,7 +55,7 @@ class Tododb:
             sys.exit(0)
         else:
             try:
-                file_size = os.path.getsize(TODO_TXT_LOCATION)
+                file_size = os.path.getsize(self.location)
                 if file_size == 0L:
                     raise EmptyFileException("The todo.txt is empty")
             except EmptyFileException, arg:

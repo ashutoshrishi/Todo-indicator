@@ -5,9 +5,22 @@ pygtk.require('2.0')
 import gtk
 import appindicator
 import sys
+import pynotify
 
-from settings import *
+import settings
 from tododb import *
+
+# Tries to create a conf file. The function will return control if it finds the file existing already
+settings.create_conf()
+TODO_TXT_LOCATION = ''
+
+if settings.is_todo_existing():
+    TODO_TXT_LOCATION = settings.get_location()
+else:
+    settings.select_todofile()
+    TODO_TXT_LOCATION = settings.get_location()
+    
+print TODO_TXT_LOCATION
 
 TODO = Tododb(TODO_TXT_LOCATION)
 
@@ -28,13 +41,17 @@ class TodoApplet:
         
     def change_filename(self, widget, data=None):
         """ Change the settings file """
-        pass
+        settings.select_todofile()
+        notify = pynotify.Notification("The new location of todo.txt has been set","Please restart the application to load the new task list")
+        notify.show()
+        gtk.main_quit()
+        
     
     def __init__ (self, todo_dict):
         self.ind = appindicator.Indicator("todo-menu", "indicator-messages", appindicator.CATEGORY_APPLICATION_STATUS)
         self.ind.set_status(appindicator.STATUS_ACTIVE)
         self.ind.set_attention_icon ("indicator-messages-new")
-        self.ind.set_icon("gtg-panel")
+        self.ind.set_icon("distributor-logo")
         
         # Main menu
         self.menu = gtk.Menu()
